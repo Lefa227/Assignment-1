@@ -25,16 +25,19 @@ public class LefaPart1POE {
         
         System.out.print("Please enter your lastname:");
         String lastname = scanner.nextLine();
-        String username;
-        String password;
+        String username = scanner.nextLine();
+        String password = scanner.nextLine();
         
+        //Make use of a do while loop to ensure the user enters the correct details 
         do{
         System.out.print("Please enter your username:");
-         username = scanner.nextLine();
-    }while(!log.checkUsername(username));
+         username = scanner.nextLine(); 
+        
+        } while(!log.checkUsername(username));
         
         do{
         System.out.print("Please enter your password:");
         password = scanner.nextLine();
-    }while(log.(password));
+        }while(log.checkpasswordcomplexity(password));     
+    }
 }

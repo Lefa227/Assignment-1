@@ -46,4 +46,46 @@ public class Login {
         }
         return hasCapitalLetter && hasNumber && hasSpecialChar;
     }
+    
+    // Register the user by checking username and password validity
+    public String registerUser() {
+        if (checkUsername()) {
+            System.out.println("Username successfully captured.");
+        } else {
+            System.out.println("Username is not correctly formatted. Please ensure that your Username contains an underscore and is no more than 5 characters in length.");
+        }
+        if (checkPasswordComplexity()) {
+            System.out.println("Password successfully captured.");
+        } else {
+            System.out.println("Password is not correctly formatted. Please ensure that the password contains at least 8 characters, a capital letter, a number and a special character.");
+        }
+        if (checkUsername() && checkPasswordComplexity()) {
+            System.out.println("The two conditions in the above statement have been met and the user has been registered successfully.");
+        } else {
+            if (!checkPasswordComplexity()) {
+                System.out.println("The Password does not meet the complexity requirements.");
+            }
+            if (!checkUsername()) {
+                System.out.println("The username is not correctly formatted.");
+            }
+        }
+        return "";
+    }
+    
+     // Validate user login
+    public boolean loginUser() {
+        return username.equals(enteredUsername) && password.equals(enteredPassword);
+    }
+
+    // Return login status message
+    public String returnLoginStatus() {
+        if (loginUser()) {
+            System.out.println("Successful login");
+            System.out.println("Welcome " + firstName + " " + lastName + " it is great to see you again.");
+        } else {
+            System.out.println("A failed login");
+            System.out.println("Username or Password incorrect please try again");
+        }
+        return "";
+    }
 }
