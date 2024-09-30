@@ -26,10 +26,10 @@ public class LefaPart1POE {
         System.out.print("Please enter your lastname:");
         String lastname = scanner.nextLine();
         
-         System.out.println("Please enter username");
+         System.out.println("Please enter username:");
         String username = scanner.nextLine();
         
-         System.out.println("Please enter password");
+         System.out.println("Please enter password:");
         String password = scanner.nextLine();
         
         //Make use of a do while loop to ensure the user enters the correct details 
@@ -53,7 +53,7 @@ public class LefaPart1POE {
          System.out.println("Please enter password");
          password = scanner.nextLine();
          
-         System.out.println(log.returnLoginStatus());
+         System.out.println(log.loginUser());
          
          //Make use of a do while loop to ensure that the user enters the details that meet the requirements 
          while(!log.loginUser()){
@@ -63,7 +63,7 @@ public class LefaPart1POE {
              System.out.println("Please enter password");
              password = scanner.nextLine();
              
-             System.out.println(log.returnLoginStatus());
+             System.out.println(log.loginUser());
             
          }
          

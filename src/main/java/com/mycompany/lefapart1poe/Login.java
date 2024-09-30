@@ -4,6 +4,8 @@
  */
 package com.mycompany.lefapart1poe;
 
+import java.util.Scanner;
+
 /**
  *
  * @author RC_Student_lab
@@ -13,12 +15,45 @@ public class Login {
     
     String enteredUsername; // Entered username during login
     String enteredPassword; // Entered password during login
-    String firstName; // User's first name
-    String lastName; // User's last name
+    String firstname; // User's first name
+    String lastname; // User's last name
     String password; // User's password
     String username; // User's username
+    
+    
+  
 
-    // Check if the username is valid
+    //Public access modifier to declare boolean
+    public boolean correct = true;
+    public boolean verify = false;
+    public boolean check = false;
+
+    public String getFirstname() {
+        return firstname;
+    }
+
+    //Getters and setters to return the declared variables
+    public String getLastname() {
+        return lastname;
+    }
+
+    public String getsUsername() {
+        return username;
+    }
+
+    public void setsUsername(String Username) {
+        this.username = Username;
+    }
+
+    public String getsPassword() {
+        return password;
+    }
+
+    public void setsPassword(String Password) {
+        this.password = Password;
+    }
+
+    // Check if the username contains an underscore and is less than 5 characters 
     public boolean checkUsername() {
         if (username.length() <= 5 && username.contains("_")) {
             return true;
@@ -26,8 +61,9 @@ public class Login {
         return false;
     }
     
-    
-    // Check if the password meets complexity requirements
+    //Complexity requirements 
+    // Check if the password contains a capital letter, a number and a special character
+    //Make use of a loop
     public boolean checkPasswordComplexity() {
         boolean hasCapitalLetter = false;
         boolean hasNumber = false;
@@ -74,18 +110,27 @@ public class Login {
     
      // Validate user login
     public boolean loginUser() {
-        return username.equals(enteredUsername) && password.equals(enteredPassword);
+     Scanner firstnameSc = new Scanner(System.in);
+        System.out.println("Welcome user please enter your access details");
+
+        //Make use of a do while loop
+        System.out.println("Enter your username");
+        String Username = firstnameSc.nextLine();
+
+        System.out.println("Please enter your password");
+        String password = firstnameSc.nextLine();
+
+        //Make use of an if statement 
+        if (Username.equals(this.username) && password.equals(this.password)) {
+            correct = true;
+        } else {
+            System.out.println("USERNAME OR PASSWORD INCORRECT, PLEASE TRY AGAIN!");
+            correct = false;
+
+        }
+        while (!correct);
+
+        return correct;
+    }
     }
 
-    // Return login status message
-    public String returnLoginStatus() {
-        if (loginUser()) {
-            System.out.println("Successful login");
-            System.out.println("Welcome " + firstName + " " + lastName + " it is great to see you again.");
-        } else {
-            System.out.println("A failed login");
-            System.out.println("Username or Password incorrect please try again");
-        }
-        return "";
-    }
-}
