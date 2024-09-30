@@ -25,19 +25,49 @@ public class LefaPart1POE {
         
         System.out.print("Please enter your lastname:");
         String lastname = scanner.nextLine();
+        
+         System.out.println("Please enter username");
         String username = scanner.nextLine();
+        
+         System.out.println("Please enter password");
         String password = scanner.nextLine();
         
         //Make use of a do while loop to ensure the user enters the correct details 
-        do{
-        System.out.print("Please enter your username:");
-         username = scanner.nextLine(); 
+      //User registration 
         
-        } while(!log.checkUsername(username));
+         System.out.println(log.registerUser());
+         while(!log.checkUsername()|| !log.checkPasswordComplexity()){
+             System.out.println("Try the registration process again!!!!");
+             System.out.println("Please enter username");
+             username = scanner.nextLine();
+             System.out.println("Please enter user Password");
+             password = scanner.nextLine();
+             
+             System.out.println(log.registerUser());
+         }
+         
+         //User Login Process 
+         System.out.println("Login Process...........");
+         System.out.println("Please enter username");
+         username = scanner.nextLine();
+         System.out.println("Please enter password");
+         password = scanner.nextLine();
+         
+         System.out.println(log.returnLoginStatus());
+         
+         //Make use of a do while loop to ensure that the user enters the details that meet the requirements 
+         while(!log.loginUser()){
+             System.out.println("Please try the login process once more......");
+             System.out.println("Please enter username");
+             username = scanner.nextLine();
+             System.out.println("Please enter password");
+             password = scanner.nextLine();
+             
+             System.out.println(log.returnLoginStatus());
+            
+         }
+         
+
         
-        do{
-        System.out.print("Please enter your password:");
-        password = scanner.nextLine();
-        }while(log.checkpasswordcomplexity(password));     
     }
 }
